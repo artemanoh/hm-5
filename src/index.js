@@ -17,11 +17,11 @@ function updateKeyDisplay() {
   }
 }
 
-function wrongKey(expected, pressed) {
-  error({
-    text: `Помилка. Треба: "${expected}", ви натиснули: "${pressed}"`,
-    delay: 5000
-  });
+function handleWrongKey(expected, pressed) {
+    error({
+        text: `Помилка. Треба: "${expected}", ви натиснули: "${pressed}"`,
+        delay: 5000
+    });
 }
 
 
@@ -40,18 +40,17 @@ document.addEventListener("keydown", (event) => {
     currentKeyIndex++;
     updateKeyDisplay();
   } else {
-    wrongKey(expectedKey, pressedKey);
+    handleWrongKey(expectedKey, pressedKey);
   }
 });
 
 document.addEventListener("keypress", (event) => event.preventDefault());
 
-function startNewGame() {
-  currentKeyIndex = 0;
-  keyDisplay.textContent = keys[currentKeyIndex];
-  info({
-    text: "Гру розпочато знову! Вперед 😉",
-    delay: 4000
+newGameBtn.addEventListener("click", () => {
+    currentKeyIndex = 0;
+    keyDisplay.textContent = keys[currentKeyIndex];
+    info({
+      text: "Гру розпочато знову! Вперед 😉",
+      delay: 4000
+    });
   });
-}
-newGameBtn.addEventListener("click", startNewGame);
