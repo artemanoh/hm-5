@@ -1,0 +1,26 @@
+const chartData = {
+    labels: [
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+      "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+      "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
+    ],
+    datasets: [
+      {
+        label: "Температура",
+        data: [
+          12, 13, 12, 13, 14, 15, 14, 13, 14, 15,
+          16, 17, 18, 19, 20, 21, 22, 23, 24, 22,
+          24, 26, 24, 22, 25, 23, 21, 23, 23, 21,
+        ],
+        backgroundColor: "#ba1a92",
+        borderColor: "#ba1a92",
+        borderWidth: 1,
+      }
+    ]
+  };
+  
+  const temperatureChart = new Chart(document.getElementById("chart-temperature"),{
+      type: "line",
+      data: chartData,
+  });
+  
